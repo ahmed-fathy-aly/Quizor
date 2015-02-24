@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.team_egor.quizor"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.team_egor.quizor.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.team_egor.quizor.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <receiver
+            android:name="web.gcm.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.team_egor.quizor" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="web.gcm.GcmIntentService" />
+
+        <activity
+            android:name="ui.activities.LoginRegisterActivity"
+            android:label="@string/title_activity_login_register"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorViewGroups"
+            android:label="@string/title_activity_view_groupa"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorAddGroup"
+            android:label="@string/title_activity_add_group"
+            android:parentActivityName="ui.activities.ProfessorViewGroups"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewGroups" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorViewQuizzes"
+            android:label="@string/title_activity_view_quizzes"
+            android:parentActivityName="ui.activities.ProfessorViewGroups"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewGroups" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorAddQuiz"
+            android:label="@string/title_activity_add_quiz"
+            android:parentActivityName="ui.activities.ProfessorViewQuizzes"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewQuizzes" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorAddStudentsToGroup"
+            android:label="@string/title_activity_add_students"
+            android:parentActivityName="ui.activities.ProfessorViewGroups"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewGroups" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorEditQuizQuestions"
+            android:label="@string/title_activity_edit_questions"
+            android:parentActivityName="ui.activities.ProfessorViewQuizzes"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewQuizzes" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfessorViewStudentsInGroup"
+            android:label="@string/title_activity_view_students"
+            android:parentActivityName="ui.activities.ProfessorViewGroups"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewGroups" />
+        </activity>
+        <activity
+            android:name="ui.activities.ProfesorViewQuizStatistics"
+            android:label="@string/title_activity_view_quizz_statistics"
+            android:parentActivityName="ui.activities.ProfessorViewQuizzes"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.ProfessorViewQuizzes" />
+        </activity>
+        <activity
+            android:name="ui.activities.StudentViewGroups"
+            android:label="@string/title_activity_view_groups_student"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="ui.activities.StudentViewQuizzes"
+            android:label="@string/title_activity_view_quizzes_student"
+            android:parentActivityName="ui.activities.StudentViewGroups"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.team_egor.quizor.StudentViewGroups" />
+        </activity>
+        <activity
+            android:name="ui.activities.StudentAnswersQuiz"
+            android:label="@string/title_activity_activity_answer_questions"
+            android:parentActivityName="ui.activities.StudentViewQuizzes"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.activities.StudentViewQuizzes" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+    </application>
+
+</manifest>

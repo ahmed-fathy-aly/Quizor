@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quizor</string>
+    <string name="title_activity_login_register">Quizor</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_view_quizzes">Quizzes</string>
+    <string name="title_activity_view_groupa">Groups</string>
+    <string name="title_activity_add_group">Add a Group</string>
+    <string name="title_activity_add_quiz">Add a Quiz</string>
+    <string name="title_activity_add_students">Add students to group</string>
+    <string name="title_activity_edit_questions">Edit Questions</string>
+    <string name="title_activity_activity_answer_questions">Answer Quiz</string>
+    <string name="title_activity_view_groups_student">Groups</string>
+    <string name="title_activity_view_quizzes_student">Quizzes</string>
+    <string name="title_activity_view_students">All students</string>
+    <string name="title_activity_view_quizz_statistics">Results</string>
+    <string name="title_activity_main">MainActivity</string>
+
+</resources>
